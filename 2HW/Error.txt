@@ -1,0 +1,164 @@
+root@glova-linux:/home/glova# lxc-start -n test123
+
+lxc-start: test123: lxccontainer.c: wait_on_daemonized_start: 877 Received container state "ABORTING" instead of "RUNNING"
+
+lxc-start: test123: tools/lxc_start.c: main: 306 The container failed to start
+
+lxc-start: test123: tools/lxc_start.c: main: 309 To get more details, run the container in foreground mode
+
+lxc-start: test123: tools/lxc_start.c: main: 311 Additional information can be obtained by setting the --logfile and --logpriority options
+
+root@glova-linux:/home/glova# lxc-start -n test123 -F
+
+lxc-start: test123: network.c: netdev_configure_server_veth: 711 No such file or directory - Failed to attach "veth5IDyOi" to bridge "lxcbr0", bridge interface doesn't exist
+
+lxc-start: test123: network.c: lxc_create_network_priv: 3427 No such file or directory - Failed to create network device
+
+lxc-start: test123: start.c: lxc_spawn: 1843 Failed to create the network
+
+lxc-start: test123: start.c: __lxc_start: 2074 Failed to spawn container "test123"
+
+lxc-start: test123: tools/lxc_start.c: main: 306 The container failed to start
+
+lxc-start: test123: tools/lxc_start.c: main: 311 Additional information can be obtained by setting the --logfile and --logpriority options
+
+root@glova-linux:/home/glova# lxc-start -n test123 --logfile=mycontainer.log --logpriority=DEBUG
+
+lxc-start: test123: lxccontainer.c: wait_on_daemonized_start: 877 Received container state "ABORTING" instead of "RUNNING"
+
+lxc-start: test123: tools/lxc_start.c: main: 306 The container failed to start
+
+lxc-start: test123: tools/lxc_start.c: main: 309 To get more details, run the container in foreground mode
+
+lxc-start: test123: tools/lxc_start.c: main: 311 Additional information can be obtained by setting the --logfile and --logpriority options
+
+root@glova-linux:/home/glova# cat mycontainer.log
+
+lxc-start test123 20230720103914.329 INFO     lxccontainer - lxccontainer.c:do_lxcapi_start:997 - Set process title to [lxc monitor] /var/lib/lxc test123
+
+lxc-start test123 20230720103914.329 DEBUG    lxccontainer - lxccontainer.c:wait_on_daemonized_start:858 - First child 57145 exited
+
+lxc-start test123 20230720103914.330 INFO     lsm - lsm/lsm.c:lsm_init_static:38 - Initialized LSM security driver AppArmor
+
+lxc-start test123 20230720103914.331 DEBUG    seccomp - seccomp.c:parse_config_v2:656 - Host native arch is [3221225534]
+
+lxc-start test123 20230720103914.331 INFO     seccomp - seccomp.c:parse_config_v2:807 - Processing "reject_force_umount  # comment this to allow umount -f;  not recommended"
+
+lxc-start test123 20230720103914.331 INFO     seccomp - seccomp.c:do_resolve_add_rule:524 - Set seccomp rule to reject force umounts
+
+lxc-start test123 20230720103914.331 INFO     seccomp - seccomp.c:do_resolve_add_rule:524 - Set seccomp rule to reject force umounts
+
+lxc-start test123 20230720103914.331 INFO     seccomp - seccomp.c:do_resolve_add_rule:524 - Set seccomp rule to reject force umounts
+
+lxc-start test123 20230720103914.331 INFO     seccomp - seccomp.c:parse_config_v2:807 - Processing "[all]"
+
+lxc-start test123 20230720103914.331 INFO     seccomp - seccomp.c:parse_config_v2:807 - Processing "kexec_load errno 1"
+
+lxc-start test123 20230720103914.331 INFO     seccomp - seccomp.c:do_resolve_add_rule:564 - Adding native rule for syscall[246:kexec_load] action[327681:errno] arch[0]
+
+lxc-start test123 20230720103914.331 INFO     seccomp - seccomp.c:do_resolve_add_rule:564 - Adding compat rule for syscall[246:kexec_load] action[327681:errno] arch[1073741827]
+
+lxc-start test123 20230720103914.331 INFO     seccomp - seccomp.c:do_resolve_add_rule:564 - Adding compat rule for syscall[246:kexec_load] action[327681:errno] arch[1073741886]
+
+lxc-start test123 20230720103914.331 INFO     seccomp - seccomp.c:parse_config_v2:807 - Processing "open_by_handle_at errno 1"
+
+lxc-start test123 20230720103914.331 INFO     seccomp - seccomp.c:do_resolve_add_rule:564 - Adding native rule for syscall[304:open_by_handle_at] action[327681:errno] arch[0]
+
+lxc-start test123 20230720103914.331 INFO     seccomp - seccomp.c:do_resolve_add_rule:564 - Adding compat rule for syscall[304:open_by_handle_at] action[327681:errno] arch[1073741827]
+
+lxc-start test123 20230720103914.331 INFO     seccomp - seccomp.c:do_resolve_add_rule:564 - Adding compat rule for syscall[304:open_by_handle_at] action[327681:errno] arch[1073741886]
+
+lxc-start test123 20230720103914.331 INFO     seccomp - seccomp.c:parse_config_v2:807 - Processing "init_module errno 1"
+
+lxc-start test123 20230720103914.331 INFO     seccomp - seccomp.c:do_resolve_add_rule:564 - Adding native rule for syscall[175:init_module] action[327681:errno] arch[0]
+
+lxc-start test123 20230720103914.331 INFO     seccomp - seccomp.c:do_resolve_add_rule:564 - Adding compat rule for syscall[175:init_module] action[327681:errno] arch[1073741827]
+
+lxc-start test123 20230720103914.331 INFO     seccomp - seccomp.c:do_resolve_add_rule:564 - Adding compat rule for syscall[175:init_module] action[327681:errno] arch[1073741886]
+
+lxc-start test123 20230720103914.331 INFO     seccomp - seccomp.c:parse_config_v2:807 - Processing "finit_module errno 1"
+
+lxc-start test123 20230720103914.331 INFO     seccomp - seccomp.c:do_resolve_add_rule:564 - Adding native rule for syscall[313:finit_module] action[327681:errno] arch[0]
+
+lxc-start test123 20230720103914.331 INFO     seccomp - seccomp.c:do_resolve_add_rule:564 - Adding compat rule for syscall[313:finit_module] action[327681:errno] arch[1073741827]
+
+lxc-start test123 20230720103914.331 INFO     seccomp - seccomp.c:do_resolve_add_rule:564 - Adding compat rule for syscall[313:finit_module] action[327681:errno] arch[1073741886]
+
+lxc-start test123 20230720103914.331 INFO     seccomp - seccomp.c:parse_config_v2:807 - Processing "delete_module errno 1"
+
+lxc-start test123 20230720103914.331 INFO     seccomp - seccomp.c:do_resolve_add_rule:564 - Adding native rule for syscall[176:delete_module] action[327681:errno] arch[0]
+
+lxc-start test123 20230720103914.332 INFO     seccomp - seccomp.c:do_resolve_add_rule:564 - Adding compat rule for syscall[176:delete_module] action[327681:errno] arch[1073741827]
+
+lxc-start test123 20230720103914.332 INFO     seccomp - seccomp.c:do_resolve_add_rule:564 - Adding compat rule for syscall[176:delete_module] action[327681:errno] arch[1073741886]
+
+lxc-start test123 20230720103914.332 INFO     seccomp - seccomp.c:parse_config_v2:1017 - Merging compat seccomp contexts into main context
+
+lxc-start test123 20230720103914.332 INFO     start - start.c:lxc_init:884 - Container "test123" is initialized
+
+lxc-start test123 20230720103914.350 INFO     cgfsng - cgroups/cgfsng.c:cgfsng_monitor_create:1029 - The monitor process uses "lxc.monitor.test123" as cgroup
+
+lxc-start test123 20230720103914.351 DEBUG    storage - storage/storage.c:get_storage_by_name:209 - Detected rootfs type "dir"
+
+lxc-start test123 20230720103914.351 INFO     cgfsng - cgroups/cgfsng.c:cgfsng_payload_create:1137 - The container process uses "lxc.payload.test123" as inner and "lxc.payload.test123" as limit cgroup
+
+lxc-start test123 20230720103914.354 INFO     start - start.c:lxc_spawn:1765 - Cloned CLONE_NEWNS
+
+lxc-start test123 20230720103914.355 INFO     start - start.c:lxc_spawn:1765 - Cloned CLONE_NEWPID
+
+lxc-start test123 20230720103914.355 INFO     start - start.c:lxc_spawn:1765 - Cloned CLONE_NEWUTS
+
+lxc-start test123 20230720103914.355 INFO     start - start.c:lxc_spawn:1765 - Cloned CLONE_NEWIPC
+
+lxc-start test123 20230720103914.355 INFO     start - start.c:lxc_spawn:1765 - Cloned CLONE_NEWNET
+
+lxc-start test123 20230720103914.355 INFO     start - start.c:lxc_spawn:1765 - Cloned CLONE_NEWCGROUP
+
+lxc-start test123 20230720103914.355 DEBUG    start - start.c:lxc_try_preserve_namespace:139 - Preserved mnt namespace via fd 19 and stashed path as mnt:/proc/57146/fd/19
+
+lxc-start test123 20230720103914.355 DEBUG    start - start.c:lxc_try_preserve_namespace:139 - Preserved pid namespace via fd 20 and stashed path as pid:/proc/57146/fd/20
+
+lxc-start test123 20230720103914.355 DEBUG    start - start.c:lxc_try_preserve_namespace:139 - Preserved uts namespace via fd 21 and stashed path as uts:/proc/57146/fd/21
+
+lxc-start test123 20230720103914.355 DEBUG    start - start.c:lxc_try_preserve_namespace:139 - Preserved ipc namespace via fd 22 and stashed path as ipc:/proc/57146/fd/22
+
+lxc-start test123 20230720103914.355 DEBUG    start - start.c:lxc_try_preserve_namespace:139 - Preserved net namespace via fd 23 and stashed path as net:/proc/57146/fd/23
+
+lxc-start test123 20230720103914.355 DEBUG    start - start.c:lxc_try_preserve_namespace:139 - Preserved cgroup namespace via fd 24 and stashed path as cgroup:/proc/57146/fd/24
+
+lxc-start test123 20230720103914.356 WARN     cgfsng - cgroups/cgfsng.c:cgfsng_setup_limits_legacy:2767 - Invalid argument - Ignoring legacy cgroup limits on pure cgroup2 system
+
+lxc-start test123 20230720103914.356 INFO     cgfsng - cgroups/cgfsng.c:cgfsng_setup_limits:2863 - Limits for the unified cgroup hierarchy have been setup
+
+lxc-start test123 20230720103914.388 ERROR    network - network.c:netdev_configure_server_veth:711 - No such file or directory - Failed to attach "vethWaEJau" to bridge "lxcbr0", bridge interface doesn't exist
+
+lxc-start test123 20230720103914.413 ERROR    network - network.c:lxc_create_network_priv:3427 - No such file or directory - Failed to create network device
+
+lxc-start test123 20230720103914.413 ERROR    start - start.c:lxc_spawn:1843 - Failed to create the network
+
+lxc-start test123 20230720103914.414 DEBUG    network - network.c:lxc_delete_network:4173 - Deleted network devices
+
+lxc-start test123 20230720103914.414 ERROR    lxccontainer - lxccontainer.c:wait_on_daemonized_start:877 - Received container state "ABORTING" instead of "RUNNING"
+
+lxc-start test123 20230720103914.414 ERROR    lxc_start - tools/lxc_start.c:main:306 - The container failed to start
+
+lxc-start test123 20230720103914.414 ERROR    lxc_start - tools/lxc_start.c:main:309 - To get more details, run the container in foreground mode
+
+lxc-start test123 20230720103914.414 ERROR    lxc_start - tools/lxc_start.c:main:311 - Additional information can be obtained by setting the --logfile and --logpriority options
+
+lxc-start test123 20230720103914.415 ERROR    start - start.c:__lxc_start:2074 - Failed to spawn container "test123"
+
+lxc-start test123 20230720103914.415 WARN     start - start.c:lxc_abort:1039 - No such process - Failed to send SIGKILL via pidfd 18 for process 57147
+
+lxc-start test123 20230720103914.435 INFO     conf - conf.c:run_script_argv:337 - Executing script "/usr/share/lxcfs/lxc.reboot.hook" for container "test123", config section "lxc"
+
+root@glova-linux:/home/glova# lxc storage list
+
++------+--------+--------+-------------+---------+-------+
+
+| NAME | DRIVER | SOURCE | DESCRIPTION | USED BY | STATE |
+
++------+--------+--------+-------------+---------+-------+
+
+root@glova-linux:/home/glova# 
+
