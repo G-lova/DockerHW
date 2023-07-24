@@ -1,0 +1,92 @@
+root@glova-linux:/home/glova# cd /
+
+root@glova-linux:/# nano /test/folder/test.txt
+
+root@glova-linux:/# mkdir /test
+
+root@glova-linux:/# mkdir /test/folder
+
+root@glova-linux:/# nano /test/folder/test.txt
+
+root@glova-linux:/# mkdir /root
+
+mkdir: невозможно создать каталог «/root»: Файл существует
+
+root@glova-linux:/# nano /root/test.txt
+
+root@glova-linux:/# docker run -it -h GB --name gb-test -v /test/folder:/otherway -v /root/test.txt:/otherway/test.txt ubuntu:22.10
+
+Unable to find image 'ubuntu:22.10' locally
+
+22.10: Pulling from library/ubuntu
+
+3ad6ea492c35: Pull complete 
+
+Digest: sha256:e322f4808315c387868a9135beeb11435b5b83130a8599fd7d0014452c34f489
+
+Status: Downloaded newer image for ubuntu:22.10
+
+root@GB:/# ll
+
+total 60
+
+drwxr-xr-x   1 root root 4096 Jul 24 16:27 ./
+
+drwxr-xr-x   1 root root 4096 Jul 24 16:27 ../
+
+-rwxr-xr-x   1 root root    0 Jul 24 16:27 .dockerenv*
+
+lrwxrwxrwx   1 root root    7 Jun 24 02:02 bin -> usr/bin/
+
+drwxr-xr-x   2 root root 4096 Oct 17  2022 boot/
+
+drwxr-xr-x   5 root root  360 Jul 24 16:27 dev/
+
+drwxr-xr-x   1 root root 4096 Jul 24 16:27 etc/
+
+drwxr-xr-x   2 root root 4096 Oct 17  2022 home/
+
+lrwxrwxrwx   1 root root    7 Jun 24 02:02 lib -> usr/lib/
+
+lrwxrwxrwx   1 root root    9 Jun 24 02:02 lib32 -> usr/lib32/
+
+lrwxrwxrwx   1 root root    9 Jun 24 02:02 lib64 -> usr/lib64/
+
+lrwxrwxrwx   1 root root   10 Jun 24 02:02 libx32 -> usr/libx32/
+
+drwxr-xr-x   2 root root 4096 Jun 24 02:02 media/
+
+drwxr-xr-x   2 root root 4096 Jun 24 02:02 mnt/
+
+drwxr-xr-x   2 root root 4096 Jun 24 02:02 opt/
+
+drwxr-xr-x   2 root root 4096 Jul 24 16:25 otherway/
+
+dr-xr-xr-x 356 root root    0 Jul 24 16:27 proc/
+
+drwx------   2 root root 4096 Jun 24 02:05 root/
+
+drwxr-xr-x   5 root root 4096 Jun 24 02:05 run/
+
+lrwxrwxrwx   1 root root    8 Jun 24 02:02 sbin -> usr/sbin/
+
+drwxr-xr-x   2 root root 4096 Jun 24 02:02 srv/
+
+dr-xr-xr-x  13 root root    0 Jul 24 16:27 sys/
+
+drwxrwxrwt   2 root root 4096 Jun 24 02:05 tmp/
+
+drwxr-xr-x  14 root root 4096 Jun 24 02:02 usr/
+
+drwxr-xr-x  11 root root 4096 Jun 24 02:05 var/
+
+root@GB:/# cat /otherway/test.txt
+
+/root/test.txt
+
+root@GB:/# exit
+
+exit
+
+root@glova-linux:/# 
+
