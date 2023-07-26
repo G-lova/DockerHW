@@ -1,0 +1,184 @@
+glova@glova-linux:~$ sudo su
+
+[sudo] пароль для glova: 
+
+root@glova-linux:/home/glova# mkdir myjavaapp
+
+root@glova-linux:/home/glova# cd myjavaapp
+
+root@glova-linux:/home/glova/myjavaapp# nano Main.java
+
+root@glova-linux:/home/glova/myjavaapp# nano Dockerfile
+
+root@glova-linux:/home/glova/myjavaapp# docker build -t my-java-app .
+
+[+] Building 177.8s (8/8) FINISHED                                                                                   docker:default
+
+ => [internal] load build definition from Dockerfile                                                                           1.6s
+
+ => => transferring dockerfile: 139B                                                                                           0.4s
+
+ => [internal] load .dockerignore                                                                                              1.4s
+
+ => => transferring context: 2B                                                                                                0.1s
+
+ => [internal] load metadata for docker.io/library/openjdk:11                                                                  5.2s
+
+ => [internal] load build context                                                                                              0.9s
+
+ => => transferring context: 3.45kB                                                                                            0.0s
+
+ => [1/4] FROM docker.io/library/openjdk:11@sha256:99bac5bf83633e3c7399aed725c8415e7b569b54e03e4599e580fc9cdb7c21ab          133.3s
+
+ => => resolve docker.io/library/openjdk:11@sha256:99bac5bf83633e3c7399aed725c8415e7b569b54e03e4599e580fc9cdb7c21ab            0.1s
+
+ => => sha256:99bac5bf83633e3c7399aed725c8415e7b569b54e03e4599e580fc9cdb7c21ab 1.04kB / 1.04kB                                 0.0s
+
+ => => sha256:e81b7f317654b0f26d3993e014b04bcb29250339b11b9de41e130feecd4cd43c 1.79kB / 1.79kB                                 0.0s
+
+ => => sha256:47a932d998b743b9b0bcce55aa8ede77de94a6a183c8a67dec9d5e3b8ce0faa7 6.26kB / 6.26kB                                 0.0s
+
+ => => sha256:001c52e26ad57e3b25b439ee0052f6692e5c0f2d5d982a00a8819ace5e521452 55.00MB / 55.00MB                              13.7s
+
+ => => sha256:2068746827ec1b043b571e4788693eab7e9b2a95301176512791f8c317a2816a 10.88MB / 10.88MB                               5.2s
+
+ => => sha256:d9d4b9b6e964657da49910b495173d6c4f0d9bc47b3b44273cf82fd32723d165 5.16MB / 5.16MB                                 3.2s
+
+ => => sha256:9daef329d35093868ef75ac8b7c6eb407fa53abbcb3a264c218c2ec7bca716e6 54.58MB / 54.58MB                              17.1s
+
+ => => sha256:d85151f15b6683b98f21c3827ac545188b1849efb14a1049710ebc4692de3dd5 5.42MB / 5.42MB                                 7.6s
+
+ => => sha256:66223a710990a0ae7162aeed80417d30303afa3f24aafa57aa30348725e2230b 213B / 213B                                     8.0s
+
+ => => sha256:db38d58ec8ab4111b072f6700f978a51985acd252aabce3be377f25162e68301 202.07MB / 202.07MB                            35.1s
+
+ => => extracting sha256:001c52e26ad57e3b25b439ee0052f6692e5c0f2d5d982a00a8819ace5e521452                                     26.6s
+
+ => => extracting sha256:d9d4b9b6e964657da49910b495173d6c4f0d9bc47b3b44273cf82fd32723d165                                      1.2s
+
+ => => extracting sha256:2068746827ec1b043b571e4788693eab7e9b2a95301176512791f8c317a2816a                                      3.3s
+
+ => => extracting sha256:9daef329d35093868ef75ac8b7c6eb407fa53abbcb3a264c218c2ec7bca716e6                                     17.4s
+
+ => => extracting sha256:d85151f15b6683b98f21c3827ac545188b1849efb14a1049710ebc4692de3dd5                                      1.2s
+
+ => => extracting sha256:66223a710990a0ae7162aeed80417d30303afa3f24aafa57aa30348725e2230b                                      0.0s
+
+ => => extracting sha256:db38d58ec8ab4111b072f6700f978a51985acd252aabce3be377f25162e68301                                     52.4s
+
+ => [2/4] COPY . /usr/src/myapp                                                                                                4.1s
+
+ => [3/4] WORKDIR /usr/src/myapp 
+
+ => [4/4] RUN javac Mat.java                                                                                                   4.6s
+
+ => exporting to image                                                                                                         0.7s
+
+ => => exporting layers                                                                                                        0.5s
+
+ => => writing image sha256:3b2692d6f58a00a5894cb0d30d2b8dcfb2ab2dbc1ffab424fa71325ffd738d74                                   0.1s
+
+ => => naming to docker.io/library/my-java-app     
+
+root@glova-linux:/home/glova/myjavaapp# docker images
+
+REPOSITORY              TAG       IMAGE ID       CREATED         SIZE
+
+my-java-app             latest    3b2692d6f58a   2 minutes ago   654MB
+
+phpmyadmin/phpmyadmin   latest    933569f3a9f6   6 days ago      562MB
+
+ubuntu                  22.10     692eb4a905c0   4 weeks ago     70.3MB
+
+hello-world             latest    9c7a54a9a43c   2 months ago    13.3kB
+
+ubuntu                  latest    3b418d7b466a   3 months ago    77.8MB
+
+mysql                   8.0.31    7484689f290f   7 months ago    538MB
+
+root@glova-linux:/home/glova/myjavaapp# docker run -p 8081:8081 my-java-app
+
+[0 X 0 0 0 0 0 0]
+
+[0 0 0 0 0 0 X 0]
+
+[0 0 0 0 X 0 0 0]
+
+[0 0 0 0 0 0 0 X]
+
+[X 0 0 0 0 0 0 0]
+
+[0 0 0 X 0 0 0 0]
+
+[0 0 0 0 0 X 0 0]
+
+[0 0 X 0 0 0 0 0]
+
+
+
+root@glova-linux:/home/glova/myjavaapp# docker run -p 8081:8081 my-java-app
+
+[0 0 X 0 0 0 0 0]
+
+[0 0 0 0 0 X 0 0]
+
+[0 0 0 0 0 0 0 X]
+
+[0 X 0 0 0 0 0 0]
+
+[0 0 0 X 0 0 0 0]
+
+[X 0 0 0 0 0 0 0]
+
+[0 0 0 0 0 0 X 0]
+
+[0 0 0 0 X 0 0 0]
+
+
+
+root@glova-linux:/home/glova/myjavaapp# docker run -p 8081:8081 my-java-app
+
+[0 0 0 0 X 0 0 0]
+
+[0 X 0 0 0 0 0 0]
+
+[0 0 0 X 0 0 0 0]
+
+[0 0 0 0 0 X 0 0]
+
+[0 0 0 0 0 0 0 X]
+
+[0 0 X 0 0 0 0 0]
+
+[X 0 0 0 0 0 0 0]
+
+[0 0 0 0 0 0 X 0]
+
+
+
+root@glova-linux:/home/glova/myjavaapp# docker ps -a
+
+CONTAINER ID   IMAGE                   COMMAND                  CREATED              STATUS                          PORTS     NAMES
+
+ec20df5aa18e   my-java-app             "java Mat"               40 seconds ago       Exited (0) 38 seconds ago                 vigorous_brattain
+
+7e8db7af9b38   my-java-app             "java Mat"               47 seconds ago       Exited (0) 44 seconds ago                 frosty_wozniak
+
+690218bc1390   my-java-app             "java Mat"               About a minute ago   Exited (0) About a minute ago             quirky_meninsky
+
+4156a37e8f9f   my-java-app             "java"                   2 minutes ago        Exited (1) 2 minutes ago                  strange_blackwell
+
+7f6e1027eefd   my-java-app             "."                      4 minutes ago        Created                                   objective_jemison
+
+507b35e9431b   my-java-app             "java Mat"               5 minutes ago        Created                                   naughty_hypatia
+
+d172657de85e   phpmyadmin/phpmyadmin   "/docker-entrypoint.…"   2 days ago           Exited (0) 2 days ago                     myphp
+
+84e18d55f1fa   mysql:8.0.31            "docker-entrypoint.s…"   2 days ago           Exited (137) 2 days ago                   some-mysql
+
+e6e45731c6df   ubuntu:22.10            "/bin/bash"              2 days ago           Exited (0) 2 days ago                     gb-test
+
+833c5169b7ab   ubuntu                  "/bin/bash"              2 months ago         Exited (0) 2 months ago                   hopeful_einstein
+
+root@glova-linux:/home/glova/myjavaapp# 
+
