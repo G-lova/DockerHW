@@ -1,0 +1,544 @@
+glova@glova-linux:~$ sudo su
+
+[sudo] пароль для glova: 
+
+root@glova-linux:/home/glova# docker ps -a
+
+CONTAINER ID   IMAGE                   COMMAND                  CREATED        STATUS                    PORTS     NAMES
+
+ec20df5aa18e   my-java-app             "java Mat"               37 hours ago   Exited (0) 37 hours ago             vigorous_brattain
+
+7e8db7af9b38   my-java-app             "java Mat"               37 hours ago   Exited (0) 37 hours ago             frosty_wozniak
+
+690218bc1390   my-java-app             "java Mat"               37 hours ago   Exited (0) 37 hours ago             quirky_meninsky
+
+4156a37e8f9f   my-java-app             "java"                   37 hours ago   Exited (1) 37 hours ago             strange_blackwell
+
+7f6e1027eefd   my-java-app             "."                      37 hours ago   Created                             objective_jemison
+
+507b35e9431b   my-java-app             "java Mat"               37 hours ago   Created                             naughty_hypatia
+
+d172657de85e   phpmyadmin/phpmyadmin   "/docker-entrypoint.…"   3 days ago     Exited (0) 3 days ago               myphp
+
+84e18d55f1fa   mysql:8.0.31            "docker-entrypoint.s…"   3 days ago     Exited (137) 3 days ago             some-mysql
+
+e6e45731c6df   ubuntu:22.10            "/bin/bash"              3 days ago     Exited (0) 3 days ago               gb-test
+
+833c5169b7ab   ubuntu                  "/bin/bash"              2 months ago   Exited (0) 2 months ago             hopeful_einstein
+
+root@glova-linux:/home/glova# docker rm $(docker ps -aq) --force
+
+ec20df5aa18e
+
+7e8db7af9b38
+
+690218bc1390
+
+4156a37e8f9f
+
+7f6e1027eefd
+
+507b35e9431b
+
+d172657de85e
+
+84e18d55f1fa
+
+e6e45731c6df
+
+833c5169b7ab
+
+root@glova-linux:/home/glova# docker ps -a
+
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+
+root@glova-linux:/home/glova# docker images
+
+REPOSITORY              TAG       IMAGE ID       CREATED        SIZE
+
+my-java-app             latest    3b2692d6f58a   37 hours ago   654MB
+
+phpmyadmin/phpmyadmin   latest    933569f3a9f6   7 days ago     562MB
+
+ubuntu                  22.10     692eb4a905c0   4 weeks ago    70.3MB
+
+hello-world             latest    9c7a54a9a43c   2 months ago   13.3kB
+
+ubuntu                  latest    3b418d7b466a   3 months ago   77.8MB
+
+mysql                   8.0.31    7484689f290f   7 months ago   538MB
+
+root@glova-linux:/home/glova# docker rmi $(docker images -aq)
+
+Untagged: my-java-app:latest
+
+Deleted: sha256:3b2692d6f58a00a5894cb0d30d2b8dcfb2ab2dbc1ffab424fa71325ffd738d74
+
+Untagged: phpmyadmin/phpmyadmin:latest
+
+Untagged: phpmyadmin/phpmyadmin@sha256:67ba2550fd004399ab0b95b64021a88ea544011e566a9a1995180a3decb6410d
+
+Deleted: sha256:933569f3a9f631d1867bc512beedf6d6fa25a5b3a2b2638d59fe2d6f18002db9
+
+Deleted: sha256:c062055a88d0ea3518803dad689de0fd1c4d0086e69468539775c648d84bf7fe
+
+Deleted: sha256:870f0d68a84119de6dc57a04bd3132f43b124abf818ba2a17fa66b41c3dc092f
+
+Deleted: sha256:61dc853717e0501da0b9c65f11ae6e127f1ca210762c3082d345057f95253965
+
+Deleted: sha256:5424c4cef91d2d09dcff6b97bfad52989c678f24004e7590ed132ba06ae55f33
+
+Deleted: sha256:75e4f26595fc2534d25bbf78883def4bdec63a3c149c170cf5dd065d55be532e
+
+Deleted: sha256:7ec99bb6c6b4a5175023c7ae70e5db97ef7ed898508c1d7e98fe2418db7bb98e
+
+Deleted: sha256:7926251c2e2e130aa77881944cb31fbb37eddf866cc5fa96e5f47377ca287883
+
+Deleted: sha256:1580eb456d79472e774e05a83caa4f0d317218412586415cdc7602460cfca8d7
+
+Deleted: sha256:467630ccf847f6858149fbe7b6d0b7fa17ae0586a02f6cdfec4dddc9e975175c
+
+Deleted: sha256:08710bc0f123cdae237fde29e6186bedc6bcc277b11cd5d7dad0d9b6a3efb770
+
+Deleted: sha256:fab16324ce2cbd32748fefcc9b4c6c2d39fc84ec1ee53b9b3f197a9d5dbe223c
+
+Deleted: sha256:ba5a9b206a46895d688ae2627889243519232776a6e68d2f2d2c0ef774ad63bc
+
+Deleted: sha256:e716f1303e515b9965493c2e76c4e0d5a7d448499f72d83f3e8a1a839e865044
+
+Deleted: sha256:7c960c6887bb7153723878976acc63aaf0e78c93994769397adc56df0379f7be
+
+Deleted: sha256:758105a8a221456937e20d794c72e88461a6a89eb42f9b1346337fcdc274ca9c
+
+Deleted: sha256:c9e443ef1d4319e2aa87ca7875be15c2f601290770936f1fee419d909970d8f9
+
+Deleted: sha256:4219c066cd8854aceb2eb63a5f76f86a9a815a9cbca7bb288fd9d9fd5e520ef1
+
+Deleted: sha256:24839d45ca455f36659219281e0f2304520b92347eb536ad5cc7b4dbb8163588
+
+Untagged: ubuntu:22.10
+
+Untagged: ubuntu@sha256:e322f4808315c387868a9135beeb11435b5b83130a8599fd7d0014452c34f489
+
+Deleted: sha256:692eb4a905c074054e0a35d647671f0e32ed150d15b23fd7bc745cfb2fdeddbd
+
+Deleted: sha256:1e8bb0620308641104e68d66f65c1e51de68d7df7240b8a99a251338631c6911
+
+Untagged: hello-world:latest
+
+Untagged: hello-world@sha256:926fac19d22aa2d60f1a276b66a20eb765fbeea2db5dbdaafeb456ad8ce81598
+
+Deleted: sha256:9c7a54a9a43cca047013b82af109fe963fde787f63f9e016fdc3384500c2823d
+
+Deleted: sha256:01bb4fce3eb1b56b05adf99504dafd31907a5aadac736e36b27595c8b92f07f1
+
+Untagged: ubuntu:latest
+
+Untagged: ubuntu@sha256:dfd64a3b4296d8c9b62aa3309984f8620b98d87e47492599ee20739e8eb54fbf
+
+Deleted: sha256:3b418d7b466ac6275a6bfcb0c86fbe4422ff6ea0af444a294f82d3bf5173ce74
+
+Deleted: sha256:b8a36d10656ac19ddb96ef3107f76820663717708fc37ce929925c36d1b1d157
+
+Untagged: mysql:8.0.31
+
+Untagged: mysql@sha256:3d7ae561cf6095f6aca8eb7830e1d14734227b1fb4748092f2be2cfbccf7d614
+
+Deleted: sha256:7484689f290f1defe06b65befc54cb6ad91a667cf0af59a265ffe76c46bd0478
+
+Deleted: sha256:fb249074ba1621ae2f0021b89488f93d6d591fd42f8bbc760be96a653d18a066
+
+Deleted: sha256:d7912527c048a7e206c51080f7f1b6b6c383ac8954e3da7d113b00d0a96c7044
+
+Deleted: sha256:994f05094d147f16e330dd7c9afd5e1472fbf1ce1038eb707e379ae507de6167
+
+Deleted: sha256:1337fe7eaf3ed7bac1f1842205c3c80466781cf2ed39d755043a24939a9c4408
+
+Deleted: sha256:4524762c7e21412b3fef00e189fe6b81e78f2751fef4f30355018dc3ab5f3cf2
+
+Deleted: sha256:5222c8df3c5115dcf6c3bb957d5160d5d7124437fa2f214368d67b8e1e6d670e
+
+Deleted: sha256:169fcf64e0d193fda3e49267b454ddeb4083f05e70bbcbbc6de2798944c3e555
+
+Deleted: sha256:bc87451b8005b06fa948e48c2644bc42107cf037499d15dad7f341064035dfc2
+
+Deleted: sha256:93c1acbf3bfcdd2a82a68687481569a07d619469a596b5f017f17cc092498eef
+
+Deleted: sha256:29bd3d7c6e1683e422776b9d3285e8a3f1272f07656fc63a941cb7729a169100
+
+Deleted: sha256:d3cc7b6aa7bc15725c1a856ce06fe436da3fbccf0c9c06b04e45f79b3439c154
+
+root@glova-linux:/home/glova# docker images
+
+REPOSITORY   TAG       IMAGE ID   CREATED   SIZE
+
+root@glova-linux:/home/glova# mkdir composer
+
+root@glova-linux:/home/glova# cd composer
+
+root@glova-linux:/home/glova/composer# nano compose.yaml
+
+root@glova-linux:/home/glova/composer# cat compose.yaml
+
+version: '3.9'
+
+
+
+services:
+
+
+
+  db:
+
+    image: mariadb:10.10.2
+
+    restart: always
+
+    environment:
+
+      MYSQL_ROOT_PASSWORD: 12345
+
+
+
+  adminer:
+
+    image: adminer:4.8.1
+
+    restart: always
+
+    ports:
+
+      - 6080:8080
+
+root@glova-linux:/home/glova/composer# docker-compose up -d
+
+Команда «docker-compose» не найдена, но может быть установлена с помощью:
+
+snap install docker          # version 20.10.24, or
+
+apt  install docker-compose  # version 1.29.2-1
+
+See 'snap info docker' for additional versions.
+
+root@glova-linux:/home/glova/composer# apt-get update
+
+Сущ:1 http://ru.archive.ubuntu.com/ubuntu jammy InRelease
+
+Пол:2 http://ru.archive.ubuntu.com/ubuntu jammy-updates InRelease [119 kB]                                   
+
+Пол:3 http://ru.archive.ubuntu.com/ubuntu jammy-backports InRelease [108 kB]                                                       
+
+Пол:4 http://security.ubuntu.com/ubuntu jammy-security InRelease [110 kB]                                                          
+
+Пол:5 https://download.docker.com/linux/ubuntu jammy InRelease [48,9 kB]                                                           
+
+Пол:6 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages [855 kB]
+
+Пол:7 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main i386 Packages [456 kB]
+
+Пол:8 http://security.ubuntu.com/ubuntu jammy-security/main i386 Packages [278 kB]
+
+Пол:9 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main Translation-en [209 kB]      
+
+Пол:10 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 DEP-11 Metadata [99,7 kB]   
+
+Пол:11 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 c-n-f Metadata [15,4 kB]             
+
+Пол:12 http://ru.archive.ubuntu.com/ubuntu jammy-updates/restricted amd64 Packages [668 kB]              
+
+Пол:13 http://security.ubuntu.com/ubuntu jammy-security/main amd64 Packages [634 kB]               
+
+Пол:14 http://ru.archive.ubuntu.com/ubuntu jammy-updates/restricted Translation-en [106 kB]        
+
+Пол:15 http://ru.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 Packages [962 kB]        
+
+Пол:16 http://security.ubuntu.com/ubuntu jammy-security/main Translation-en [149 kB]             
+
+Пол:17 http://security.ubuntu.com/ubuntu jammy-security/main amd64 DEP-11 Metadata [41,4 kB]     
+
+Пол:18 http://security.ubuntu.com/ubuntu jammy-security/main amd64 c-n-f Metadata [11,0 kB]          
+
+Пол:19 http://security.ubuntu.com/ubuntu jammy-security/restricted amd64 Packages [656 kB]          
+
+Пол:20 http://ru.archive.ubuntu.com/ubuntu jammy-updates/universe i386 Packages [646 kB]          
+
+Пол:21 http://security.ubuntu.com/ubuntu jammy-security/restricted Translation-en [104 kB]        
+
+Пол:22 http://security.ubuntu.com/ubuntu jammy-security/universe i386 Packages [551 kB]          
+
+Пол:23 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 Packages [764 kB]                
+
+Пол:24 http://ru.archive.ubuntu.com/ubuntu jammy-updates/universe Translation-en [207 kB]               
+
+Пол:25 http://security.ubuntu.com/ubuntu jammy-security/universe Translation-en [137 kB]                
+
+Пол:26 http://ru.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 DEP-11 Metadata [278 kB]        
+
+Пол:27 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 DEP-11 Metadata [21,9 kB]            
+
+Пол:28 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 c-n-f Metadata [16,3 kB]                    
+
+Пол:29 http://ru.archive.ubuntu.com/ubuntu jammy-updates/universe DEP-11 48x48 Icons [190 kB]                      
+
+Пол:30 http://ru.archive.ubuntu.com/ubuntu jammy-updates/universe DEP-11 64x64 Icons [291 kB]                      
+
+Пол:31 http://ru.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 c-n-f Metadata [21,4 kB]
+
+Пол:32 http://ru.archive.ubuntu.com/ubuntu jammy-updates/multiverse Translation-en [9 768 B]
+
+Пол:33 http://ru.archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 DEP-11 Metadata [940 B]
+
+Пол:34 http://ru.archive.ubuntu.com/ubuntu jammy-backports/main amd64 DEP-11 Metadata [7 976 B]
+
+Пол:35 http://ru.archive.ubuntu.com/ubuntu jammy-backports/universe amd64 Packages [23,4 kB]
+
+Пол:36 http://ru.archive.ubuntu.com/ubuntu jammy-backports/universe i386 Packages [13,9 kB]
+
+Пол:37 http://ru.archive.ubuntu.com/ubuntu jammy-backports/universe amd64 DEP-11 Metadata [15,3 kB]
+
+Получено 8 825 kB за 7с (1 248 kB/s)                                                                                               
+
+Чтение списков пакетов… Готово
+
+root@glova-linux:/home/glova/composer# apt install docker-compose
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Следующий пакет устанавливался автоматически и больше не требуется:
+
+  ubuntu-fan
+
+Для его удаления используйте «sudo apt autoremove».
+
+Будут установлены следующие дополнительные пакеты:
+
+  python3-attr python3-distutils python3-docker python3-dockerpty python3-docopt python3-dotenv python3-jsonschema python3-lib2to3
+
+  python3-pyrsistent python3-setuptools python3-texttable python3-websocket
+
+Предлагаемые пакеты:
+
+  python-attr-doc python-jsonschema-doc python-setuptools-doc
+
+Рекомендуемые пакеты:
+
+  docker.io
+
+Следующие НОВЫЕ пакеты будут установлены:
+
+  docker-compose python3-attr python3-distutils python3-docker python3-dockerpty python3-docopt python3-dotenv python3-jsonschema
+
+  python3-lib2to3 python3-pyrsistent python3-setuptools python3-texttable python3-websocket
+
+Обновлено 0 пакетов, установлено 13 новых пакетов, для удаления отмечено 0 пакетов, и 168 пакетов не обновлено.
+
+Необходимо скачать 988 kB архивов.
+
+После данной операции объём занятого дискового пространства возрастёт на 5 239 kB.
+
+Хотите продолжить? [Д/н] y
+
+Пол:1 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 python3-lib2to3 all 3.10.6-1~22.04 [77,6 kB]
+
+Пол:2 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 python3-distutils all 3.10.6-1~22.04 [139 kB]
+
+Пол:3 http://ru.archive.ubuntu.com/ubuntu jammy/universe amd64 python3-websocket all 1.2.3-1 [34,7 kB]
+
+Пол:4 http://ru.archive.ubuntu.com/ubuntu jammy/universe amd64 python3-docker all 5.0.3-1 [89,3 kB]
+
+Пол:5 http://ru.archive.ubuntu.com/ubuntu jammy/universe amd64 python3-dockerpty all 0.4.1-2 [11,1 kB]
+
+Пол:6 http://ru.archive.ubuntu.com/ubuntu jammy/universe amd64 python3-docopt all 0.6.2-4 [26,9 kB]
+
+Пол:7 http://ru.archive.ubuntu.com/ubuntu jammy/universe amd64 python3-dotenv all 0.19.2-1 [20,5 kB]
+
+Пол:8 http://ru.archive.ubuntu.com/ubuntu jammy/main amd64 python3-attr all 21.2.0-1 [44,0 kB]
+
+Пол:9 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 python3-setuptools all 59.6.0-1.2ubuntu0.22.04.1 [339 kB]
+
+Пол:10 http://ru.archive.ubuntu.com/ubuntu jammy/main amd64 python3-pyrsistent amd64 0.18.1-1build1 [55,5 kB]
+
+Пол:11 http://ru.archive.ubuntu.com/ubuntu jammy/main amd64 python3-jsonschema all 3.2.0-0ubuntu2 [43,1 kB]
+
+Пол:12 http://ru.archive.ubuntu.com/ubuntu jammy/universe amd64 python3-texttable all 1.6.4-1 [11,4 kB]
+
+Пол:13 http://ru.archive.ubuntu.com/ubuntu jammy/universe amd64 docker-compose all 1.29.2-1 [95,8 kB]
+
+Получено 988 kB за 0с (2 566 kB/s)          
+
+Выбор ранее не выбранного пакета python3-lib2to3.
+
+(Чтение базы данных … на данный момент установлено 193198 файлов и каталогов.)
+
+Подготовка к распаковке …/00-python3-lib2to3_3.10.6-1~22.04_all.deb …
+
+Распаковывается python3-lib2to3 (3.10.6-1~22.04) …
+
+Выбор ранее не выбранного пакета python3-distutils.
+
+Подготовка к распаковке …/01-python3-distutils_3.10.6-1~22.04_all.deb …
+
+Распаковывается python3-distutils (3.10.6-1~22.04) …
+
+Выбор ранее не выбранного пакета python3-websocket.
+
+Подготовка к распаковке …/02-python3-websocket_1.2.3-1_all.deb …
+
+Распаковывается python3-websocket (1.2.3-1) …
+
+Выбор ранее не выбранного пакета python3-docker.
+
+Подготовка к распаковке …/03-python3-docker_5.0.3-1_all.deb …
+
+Распаковывается python3-docker (5.0.3-1) …
+
+Выбор ранее не выбранного пакета python3-dockerpty.
+
+Подготовка к распаковке …/04-python3-dockerpty_0.4.1-2_all.deb …
+
+Распаковывается python3-dockerpty (0.4.1-2) …
+
+Выбор ранее не выбранного пакета python3-docopt.
+
+Подготовка к распаковке …/05-python3-docopt_0.6.2-4_all.deb …
+
+Распаковывается python3-docopt (0.6.2-4) …
+
+Выбор ранее не выбранного пакета python3-dotenv.
+
+Подготовка к распаковке …/06-python3-dotenv_0.19.2-1_all.deb …
+
+Распаковывается python3-dotenv (0.19.2-1) …
+
+Выбор ранее не выбранного пакета python3-attr.
+
+Подготовка к распаковке …/07-python3-attr_21.2.0-1_all.deb …
+
+Распаковывается python3-attr (21.2.0-1) …
+
+Выбор ранее не выбранного пакета python3-setuptools.
+
+Подготовка к распаковке …/08-python3-setuptools_59.6.0-1.2ubuntu0.22.04.1_all.deb …
+
+Распаковывается python3-setuptools (59.6.0-1.2ubuntu0.22.04.1) …
+
+Выбор ранее не выбранного пакета python3-pyrsistent:amd64.
+
+Подготовка к распаковке …/09-python3-pyrsistent_0.18.1-1build1_amd64.deb …
+
+Распаковывается python3-pyrsistent:amd64 (0.18.1-1build1) …
+
+Выбор ранее не выбранного пакета python3-jsonschema.
+
+Подготовка к распаковке …/10-python3-jsonschema_3.2.0-0ubuntu2_all.deb …
+
+Распаковывается python3-jsonschema (3.2.0-0ubuntu2) …
+
+Выбор ранее не выбранного пакета python3-texttable.
+
+Подготовка к распаковке …/11-python3-texttable_1.6.4-1_all.deb …
+
+Распаковывается python3-texttable (1.6.4-1) …
+
+Выбор ранее не выбранного пакета docker-compose.
+
+Подготовка к распаковке …/12-docker-compose_1.29.2-1_all.deb …
+
+Распаковывается docker-compose (1.29.2-1) …
+
+Настраивается пакет python3-dotenv (0.19.2-1) …
+
+Настраивается пакет python3-attr (21.2.0-1) …
+
+Настраивается пакет python3-texttable (1.6.4-1) …
+
+Настраивается пакет python3-docopt (0.6.2-4) …
+
+Настраивается пакет python3-pyrsistent:amd64 (0.18.1-1build1) …
+
+Настраивается пакет python3-lib2to3 (3.10.6-1~22.04) …
+
+Настраивается пакет python3-websocket (1.2.3-1) …
+
+Настраивается пакет python3-dockerpty (0.4.1-2) …
+
+Настраивается пакет python3-distutils (3.10.6-1~22.04) …
+
+Настраивается пакет python3-setuptools (59.6.0-1.2ubuntu0.22.04.1) …
+
+Настраивается пакет python3-docker (5.0.3-1) …
+
+Настраивается пакет python3-jsonschema (3.2.0-0ubuntu2) …
+
+Настраивается пакет docker-compose (1.29.2-1) …
+
+Обрабатываются триггеры для man-db (2.10.2-1) …
+
+root@glova-linux:/home/glova/composer# docker-compose up -d
+
+Creating network "composer_default" with the default driver
+
+Pulling db (mariadb:10.10.2)...
+
+10.10.2: Pulling from library/mariadb
+
+10ac4908093d: Pull complete
+
+44779101e748: Pull complete
+
+a721db3e3f3d: Pull complete
+
+1850a929b84a: Pull complete
+
+397a918c7da3: Pull complete
+
+806be17e856d: Pull complete
+
+634de6c90876: Pull complete
+
+cd00854cfb1a: Pull complete
+
+Digest: sha256:bfc25a68e113de43d0d112f5a7126df8e278579c3224e3923359e1c1d8d5ce6e
+
+Status: Downloaded newer image for mariadb:10.10.2
+
+Pulling adminer (adminer:4.8.1)...
+
+4.8.1: Pulling from library/adminer
+
+9a9e034800a1: Pull complete
+
+a93e89405fb5: Pull complete
+
+0e87fd288de6: Pull complete
+
+a71b1e29bbc6: Pull complete
+
+cba31560d427: Pull complete
+
+c9a622b0a973: Pull complete
+
+e93b37eef6ad: Pull complete
+
+Digest: sha256:aa44294a566ef3662bf8622577cf7e2ea51b63ae77c5c75fc8237ff603d72c3f
+
+Status: Downloaded newer image for adminer:4.8.1
+
+Creating composer_adminer_1 ... done
+
+Creating composer_db_1      ... done
+
+root@glova-linux:/home/glova/composer# docker ps -a
+
+CONTAINER ID   IMAGE             COMMAND                  CREATED          STATUS          PORTS                                       NAMES
+
+4046feced260   adminer:4.8.1     "entrypoint.sh php -…"   52 seconds ago   Up 23 seconds   0.0.0.0:6080->8080/tcp, :::6080->8080/tcp   composer_adminer_1
+
+cdbd346730bb   mariadb:10.10.2   "docker-entrypoint.s…"   52 seconds ago   Up 23 seconds   3306/tcp                                    composer_db_1
+
+root@glova-linux:/home/glova/composer# 
+
